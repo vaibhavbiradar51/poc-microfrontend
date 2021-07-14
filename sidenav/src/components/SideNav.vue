@@ -42,10 +42,7 @@
       <v-toolbar-title>TODO | HOME</v-toolbar-title>
     </v-app-bar>
 
-    <v-main>
-      <router-view></router-view>
-      
-    </v-main>
+
   </v-app>
 </template>
 

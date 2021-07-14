@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/about',
     name: 'About',
     component: About,
     meta:{ title:'About Page'}
@@ -15,6 +15,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 const DEFAULT_TITLE = 'Some Default Title';

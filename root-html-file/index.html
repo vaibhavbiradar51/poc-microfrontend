@@ -15,13 +15,17 @@
           "about": "http://localhost:8082/js/app.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js",
           "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
-          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js"
+          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
+          "vuetify":"https://cdn.jsdelivr.net/npm/vuetify@2.4.0/dist/vuetify.js"
           
         }
       }
     </script>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js" as="script" crossorigin="anonymous" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" as="script" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/vuetify@2.4.0/dist/vuetify.js">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <script src="https://unpkg.com/import-map-overrides@1.7.2/dist/import-map-overrides.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/system.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/amd.min.js"></script>
@@ -30,14 +34,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/use-default.min.js"></script>
   </head>
   <body>
-    <script>
+    <script >
       (function() {
-        Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router')]).then(function (modules) {
+        Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router'),System.import('vuetify')]).then(function (modules) {
           var singleSpa = modules[0];
           var Vue = modules[1];
           var VueRouter = modules[2];
+          var Vuetify = modules[3];
 
           Vue.use(VueRouter)
+          
 
           singleSpa.registerApplication(
             'sidenav',
@@ -48,14 +54,14 @@
           singleSpa.registerApplication(
             'todo',
             () => System.import('todo'),
-            location => location.pathname.startsWith('/todo')
-          )
+            location => location.pathname.startsWith('/')
+          );
 
           singleSpa.registerApplication(
             'about',
             () => System.import('about'),
             location => location.pathname.startsWith('/about')
-          )
+          );
 
           singleSpa.start();
         })

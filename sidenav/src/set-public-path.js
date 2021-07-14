@@ -1,3 +1,3 @@
 import { setPublicPath } from 'systemjs-webpack-interop';
 
-setPublicPath('sidenav');
+setPublicPath('sidenav', 2);

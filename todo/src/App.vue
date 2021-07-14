@@ -9,3 +9,12 @@ export default {
   
 }
 </script>
+
+<style scoped>
+.container
+{
+  position: absolute;
+  left: 17%;
+  top: 10%;
+}
+</style>
