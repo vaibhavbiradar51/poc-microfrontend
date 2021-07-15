@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  root=config:
+  root-config:
     build: 
       context: ./root-html-file
       dockerfile: Dockerfile
